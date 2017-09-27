@@ -21,9 +21,13 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+  username: postgres
+  host: 192.168.99.100
+  port: 32770
+
 development:
   <<: *default
-  database: LeadBee_development
+  database: leadbee_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: LeadBee_test
+  database: leadbee_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: LeadBee_production
+  database: leadbee_production
   username: LeadBee
   password: <%= ENV['LEADBEE_DATABASE_PASSWORD'] %>
