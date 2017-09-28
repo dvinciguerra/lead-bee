@@ -1,0 +1,19 @@
+<section id="lead-section" class="lead-section">
+	<div class="container">
+		<div class="section-title">
+			<%= t('section.lead.title').upcase %>
+		</div>
+		<div class="section-subtitle"> 
+			<%= t('section.lead.subtitle') %> 
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<%= render 'leads/form', lead: @lead %>
+			</div>
+		</div>
+
+		<p id="notice"><%= notice %></p>
+
+	</div>
+</section>
