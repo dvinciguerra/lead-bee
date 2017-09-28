@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :lead_name %>
+  <div class="form-group">
+    <%= form.label :name, class: 'sr-only' %>
+		<%= form.text_field :name, id: :lead_name, placeholder: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :lead_email %>
+  <div class="form-group">
+    <%= form.label :email, class: 'sr-only' %>
+    <%= form.text_field :email, id: :lead_email, placeholder: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age, id: :lead_age %>
+  <div class="form-group">
+    <%= form.label :age, class: 'sr-only' %>
+    <%= form.number_field :age, id: :lead_age, placeholder: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :job %>
-    <%= form.text_field :job, id: :lead_job %>
+  <div class="form-group">
+    <%= form.label :job, class: 'sr-only' %>
+    <%= form.text_field :job, id: :lead_job, placeholder: true, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit t('section.lead.btn_submit'), class: 'btn btn-info btn-block' %>
   </div>
 <% end %>
