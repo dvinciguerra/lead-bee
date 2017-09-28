@@ -1,0 +1,39 @@
+pt:
+  # pages sections
+  section:
+    cover:
+      title: LeadBee
+      subtitle: Plataforma de gerenciamento e criação de listas segmentadas de leads
+
+    lead:
+      title: Receba Nossas Novidades
+      subtitle: Preencha o formulário abaixo para ficar por dentro das nossas novidades e receber nossos materiais sobre como fazer Cupcakes
+      btn_submit: CADASTRAR AGORA
+
+  
+  # navbar
+  navbar:
+    home: Inicio
+    register: Cadastrar Lead
+    signin: Login
+
+  # models 
+  activerecord:
+    model:
+      lead: Lead
+
+    attributes:
+      lead:
+        name: Nome
+        email: E-mail
+        age: Idade
+        job: Cargo
+        created_at: Criação
+    
+  leads:
+    create:
+      success: Obrigado pelo seu cadastro e seja bem vindo a nossa comunidade! :)
+      error: Não foi possível concluir seu cadastro! :(
+
+
+
