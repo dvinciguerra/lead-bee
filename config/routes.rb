@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  resources :leads
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # admin dashboard for lead administration (fake auth)
+	
+
+  # public register of contact lead
+  resources :leads, only: [:create]
+
+  root to: 'home#index'
 end
