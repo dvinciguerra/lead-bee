@@ -1,7 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1'
+
+# Front-end 
+gem 'sass-rails'
 gem 'turbolinks'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'coffee-script'
+gem "font-awesome-rails"
 
 # Database, server, security
 gem 'pg'
