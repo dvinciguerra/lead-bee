@@ -6,7 +6,7 @@ class LeadsController < ApplicationController
     if @lead.save
 			redirect_to root_url(@lead), notice: t('.success')
     else
-      render :root
+			redirect_to root_url(@lead)
     end
   end
 
