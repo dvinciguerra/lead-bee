@@ -1,39 +1,113 @@
 pt:
-  # pages sections
+  page:
+    title: LeadBee
+    signin:
+      title: Acesse sua conta LeadBee
+      fields:
+        email:
+          label: E-mail (seu.email@exemplo.com)
+        password:
+          label: Senha
+        remember_me:
+          label: Lembrar-me neste computador
+    admin:
+      title: "LeadBee :: Overview"
+      message: 
+        title: Você ainda não possui informações em seu dashboard
+        content: |
+          Copper mug deep v vinyl polaroid raw denim knausgaard heirloom 3 wolf moon shoreditch actually vice aesthetic man bun four dollar toast locavore. Hoodie quinoa succulents, organic synth truffaut chambray chia kickstarter banjo hexagon.
+
+
   section:
     cover:
       title: LeadBee
       subtitle: Plataforma de gerenciamento e criação de listas segmentadas de leads
-
     lead:
       title: Receba Nossas Novidades
-      subtitle: Preencha o formulário abaixo para ficar por dentro das nossas novidades e receber nossos materiais sobre como fazer Cupcakes
+      subtitle: Preencha o formulário abaixo para ficar por dentro das nossas novidades
+        e receber nossos materiais sobre como fazer Cupcakes
       btn_submit: CADASTRAR AGORA
-
-  
-  # navbar
   navbar:
     home: Inicio
     register: Cadastrar Lead
-    signin: Login
-
-  # models 
+    dashboard: Dashboard
   activerecord:
     model:
-      lead: Lead
-
+      segmentation: 
+        one: Lista Segmentada
+        other: Listas Segmentadas
+      lead: 
+        one: Lead
+        other: Leads
     attributes:
       lead:
         name: Nome
         email: E-mail
         age: Idade
         job: Cargo
-        created_at: Criação
-    
-  leads:
+        created_at: Data de criação
+        updated_at: Data de atualização
+      segmentation:
+        name: Nome da Lista
+        description: Descrição
+    errors:
+      models:
+        lead:
+          attributes:
+            name:
+              blank: Nome é obrigatório
+            email:
+              blank: E-mail é obrigatório
+            age:
+              not_a_number: Idade deve ser um número
+              blank: Idade é obrigatória
+            job:
+              blank: Cargo é obrigatório
+        segmentation_condition:
+          attributes:
+            conjunction:
+              inclusion: Esta conjunção é inválida 
+              blank: Conjunção é obrigatória
+            operator:
+              inclusion: Este operador é inválido 
+              blank: Operador é obrigatório
+  operators:
+    equals: igual a
+    diferent: diferente de
+    greater: maior que
+    less: menor que
+    contains: contenha
+    starts_with: comece com
+    ends_with: termine com
+  
+  conjunctions:
+    none: Nenhum
+    and: e (and)
+    or: ou (or)
+
+  home:
     create:
-      success: Obrigado pelo seu cadastro e seja bem vindo a nossa comunidade! :)
-      error: Não foi possível concluir seu cadastro! :(
+      success: Seja bem vindo a nossa comunidade! :)
 
-
+  leads:
+    buttons:
+      new: Adicionar Lead
+      edit: Editar Lead
+      save: Salvar Lead
+      back: Voltar
+      list: Lista de Leads
+    messages:
+      confirm_deletion: Tem certeza que deseja remover este lead?
+  
+  segmentations:
+    buttons:
+      new: Nova lista segmentada
+      save: Salvar Lista
+      edit: Editar Lista
+      back: Voltar
+      list: Listas Segmentadas
+    messages:
+      confirm_deletion: Tem certeza que deseja remover esta lista?
+      condition_created: Parametro da lista segmentada adicionado com sucesso
+      confirm_condition_deletion: Tem certeza que deseja remover esta condição de busca?
 
