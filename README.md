@@ -1,7 +1,8 @@
-# README
+# LeadBee - Lead management platform
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+LeadBee is a simples and easy-to-use lead management open-source plataform that can
+be used to give us an user friendly interface to manage leads, segmentation list and
+marketing campaign.
 
 Things you may want to cover:
 
