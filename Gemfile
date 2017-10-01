@@ -9,6 +9,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'coffee-script'
 gem "font-awesome-rails"
+gem 'uglifier'
 
 # Database
 gem 'pg'
