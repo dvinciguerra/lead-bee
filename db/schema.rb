@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927013349) do
+ActiveRecord::Schema.define(version: 20170929054046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(version: 20170927013349) do
     t.string "email"
     t.integer "age"
     t.string "job"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "segmentation_conditions", force: :cascade do |t|
+    t.string "field"
+    t.string "operator"
+    t.string "value"
+    t.string "conjunction"
+    t.bigint "segmentation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["segmentation_id"], name: "index_segmentation_conditions_on_segmentation_id"
+  end
+
+  create_table "segmentations", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
