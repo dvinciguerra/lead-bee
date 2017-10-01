@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Leads", type: :request do
-  describe "GET /leads" do
-    it "works! (now write some real specs)" do
-      get leads_path
+  describe "POST /leads" do
+    it "does create a new lead" do
+      get leads_path(build :lead)
       expect(response).to have_http_status(200)
     end
   end
