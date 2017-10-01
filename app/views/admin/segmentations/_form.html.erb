@@ -1,0 +1,28 @@
+<%= form_with(model: segmentation, local: true) do |form| %>
+  <% if segmentation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(segmentation.errors.count, "error") %> prohibited this segmentation from being saved:</h2>
+
+      <ul>
+      <% segmentation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :segmentation_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :segmentation_description, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t('segmentations.buttons.save'), class: 'btn btn-default' %>
+    <%= link_to t('segmentations.buttons.back'), 'javascript:history.back(-1)', class: 'btn btn-link' %>
+  </div>
+<% end %>

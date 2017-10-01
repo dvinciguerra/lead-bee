@@ -1,0 +1,106 @@
+<h1 class="section-title">Detalhe da Lista Segmentada</h1>
+
+<p>Visualizando os detalhes da lista</p>
+
+<p class="text-right">
+	<%= link_to t('segmentations.buttons.list'), segmentations_path, class: 'btn btn-default btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<div class="form-group">
+	<%= label_tag Segmentation.human_attribute_name("name") %>
+	<div class="form-control disabled"><%= @segmentation.name %></div>
+</div>
+
+<div class="form-group">
+	<%= label_tag Segmentation.human_attribute_name("description") %>
+	<div class="form-control disabled"><%= @segmentation.description %></div>
+</div>
+
+
+<h3>Parametros da Lista</h3>
+	<% unless @segmentation.segmentation_conditions.count > 0 %>
+	<div class="alert alert-warning">
+		<h4>Atenção!</h4>
+		Ainda não ha nenhum parametro configurado para esta lista!
+	</div>
+	<% else %>
+    <table id="clausule_table_wgt" class="table">
+      <tr>
+				<td>Conjunção</td>
+				<td>Campo da lista</td>
+        <td>Operador</td>
+        <td>Valor</td>
+        <td></td>
+      </tr>
+
+    <% @segmentation.segmentation_conditions.each_with_index do |condition, index| %>
+      <tr>
+				<td><%= t("conjunctions.#{condition.conjunction}") if index > 0 %></td>
+        <td><%= Lead.human_attribute_name(condition.field) %></td>
+				<td><%= t("operators.#{condition.operator}") %></td>
+        <td><%= condition.value %></td>
+				<td><%= link_to condition, method: :delete, data: { confirm: t('segmentations.messages.confirm_condition_deletion') } do %> <span class="glyphicon glyphicon-minus-sign"></span> <% end %></td>
+      </tr>
+    <% end %>
+	</table>
+
+	<p>
+		<%= link_to segmentation_search_path(@segmentation), class: 'btn btn-primary btn-sm' do %>
+			<span class="glyphicon glyphicon-search"></span> Carregar busca segmentada
+		<% end %>
+	</p>
+<% end %>
+
+
+<%= form_for [@segmentation, @segmentation_condition], url: segmentation_conditions_path do |form| %>
+	<%= form.hidden_field :segmentation_id, value: @segmentation.id %>
+  <% if @segmentation_condition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@segmentation_condition.errors.count, "error") %> prohibited this segmentation_condition from being saved:</h2>
+
+      <ul>
+      <% @segmentation_condition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<div class="well well-sm">
+		<h3>Adicionar novo parametro</h3>
+		<table id="clausule_table_wgt" class="table">
+      <tr>
+				<td>Conjunção <a><span class="glyphicon glyphicon-question-sign"></span></a> </td>
+				<td>Campo da lista <a><span class="glyphicon glyphicon-question-sign"></span></a> </td>
+				<td>Operador <a><span class="glyphicon glyphicon-question-sign"></span></a> </td>
+        <td>Valor</td>
+      </tr>
+
+			<tr>
+				<td>
+					<%= form.select :conjunction, options_for_select(Segmentation.conjunctions_list), {}, {id: :segmentation_condition_conjunctions, class: 'form-control'} %>
+				</td>
+
+				<td>
+					<%= form.select :field, options_for_select(Segmentation.field_list), {}, {id: :segmentation_condition_field, class: 'form-control'} %>
+				</td>
+
+				<td>
+					<%= form.select :operator, options_for_select(Segmentation.operators_list), {}, {id: :segmentation_condition_operator, class: 'form-control'} %>
+				</td>
+
+				<td>
+					<%= form.text_field :value, id: :segmentation_condition_value, class: 'form-control' %>
+				</dt>
+			</tr>
+		</div>
+	</table>
+		
+	<p>
+		<%= button_tag type: 'submit', class: 'btn btn-primary btn-sm' do %>
+			 <span class="glyphicon glyphicon-plus"></span>	Adicionar parametro
+		<% end %>
+	</p>
+<% end %>

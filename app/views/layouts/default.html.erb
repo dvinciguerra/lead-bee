@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LeadBee</title>
+		<title><%= t('page.title') %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +12,13 @@
 
 		<%= render 'partials/navbar' %>
 
-    <%= yield %>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<%= yield %>
+				</div>
+			</div>
+		</div>
+
   </body>
 </html>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Segmentation Conditions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Operator</th>
+      <th>Value</th>
+      <th>Conjunction</th>
+      <th>Segmentation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @segmentation_conditions.each do |segmentation_condition| %>
+      <tr>
+        <td><%= segmentation_condition.field %></td>
+        <td><%= segmentation_condition.operator %></td>
+        <td><%= segmentation_condition.value %></td>
+        <td><%= segmentation_condition.conjunction %></td>
+        <td><%= segmentation_condition.segmentation %></td>
+        <td><%= link_to 'Show', segmentation_condition %></td>
+        <td><%= link_to 'Edit', edit_segmentation_condition_path(segmentation_condition) %></td>
+        <td><%= link_to 'Destroy', segmentation_condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Segmentation Condition', new_segmentation_condition_path %>

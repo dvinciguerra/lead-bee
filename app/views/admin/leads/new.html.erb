@@ -1,0 +1,12 @@
+<h1 class="section-title">Criando Lead</h1>
+
+<p>Criação de um novo Lead.</p>
+
+<p class="text-right">
+	<%= link_to t('leads.buttons.list'), leads_path, class: 'btn btn-default btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'form', lead: @lead %>
+

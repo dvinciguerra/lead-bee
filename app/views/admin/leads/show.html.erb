@@ -1,0 +1,32 @@
+<h1 class="section-title">Detalhes do Lead</h1>
+
+<p>Visualizando os detalhes do lead</p>
+
+<p class="text-right">
+	<%= link_to t('leads.buttons.list'), leads_path, class: 'btn btn-default btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<div class="form-group">
+	<%= label_tag Lead.human_attribute_name("name") %>
+	<div class="form-control disabled"><%= @lead.name %></div>
+</div>
+
+<div class="form-group">
+	<%= label_tag Lead.human_attribute_name("email") %>
+	<div class="form-control disabled"><%= @lead.email %></div>
+</div>
+
+<div class="form-group">
+	<%= label_tag Lead.human_attribute_name("age") %>
+	<div class="form-control disabled"><%= @lead.age %></div>
+</div>
+
+<div class="form-group">
+	<%= label_tag Lead.human_attribute_name("job") %>
+	<div class="form-control disabled"><%= @lead.job %></div>
+</div>
+
+<%= link_to t('leads.buttons.edit'), edit_lead_path(@lead), class: 'btn btn-default' %>
+<%= link_to t('leads.buttons.back'), leads_path, class: 'btn btn-link' %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Field:</strong>
+  <%= @segmentation_condition.field %>
+</p>
+
+<p>
+  <strong>Operator:</strong>
+  <%= @segmentation_condition.operator %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @segmentation_condition.value %>
+</p>
+
+<p>
+  <strong>Conjunction:</strong>
+  <%= @segmentation_condition.conjunction %>
+</p>
+
+<p>
+  <strong>Segmentation:</strong>
+  <%= @segmentation_condition.segmentation %>
+</p>
+
+<%= link_to 'Edit', edit_segmentation_condition_path(@segmentation_condition) %> |
+<%= link_to 'Back', segmentation_conditions_path %>

@@ -1,6 +1,6 @@
-<%= form_with(model: lead, local: true) do |form| %>
+<%= form_for @lead, url: '/leads', method: 'post' do |form| %>
   <% if lead.errors.any? %>
-    <div id="error_explanation">
+    <!-- div id="error_explanation">
       <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
 
       <ul>
@@ -8,7 +8,7 @@
         <li><%= message %></li>
       <% end %>
       </ul>
-    </div>
+    </div -->
   <% end %>
 
   <div class="form-group">
@@ -32,6 +32,13 @@
   </div>
 
   <div class="form-group">
-    <%= form.submit t('section.lead.btn_submit'), class: 'btn btn-info btn-block' %>
+    <%= form.submit t('section.lead.btn_submit'), class: 'btn btn-primary btn-block' %>
   </div>
+
+	<% if flash[:notice] %>
+		<div class="alert alert-success">
+			<h4>Obrigado pelo cadastro!</h4>
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
 <% end %>

@@ -1,0 +1,39 @@
+<h1 class="section-title">Meus Leads</h1>
+
+<p>Tela de cadastro e manutenção dos seus leads.</p>
+
+<p class="text-right">
+	<%= link_to t('leads.buttons.new'), new_lead_path, class: 'btn btn-default btn-sm' %>
+	&nbsp;
+	<%= link_to t('segmentations.buttons.new'), new_segmentation_path, class: 'btn btn-primary btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+			<th><%= Lead.human_attribute_name("name") %></th>
+			<th><%= Lead.human_attribute_name("email") %></th>
+			<th><%= Lead.human_attribute_name("age") %></th>
+			<th><%= Lead.human_attribute_name("job") %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+				<td><%= link_to lead do %> <span class="glyphicon glyphicon-user"></span>&nbsp;<%= lead.name %> <% end %></td>
+        <td><%= lead.email %></td>
+        <td><%= lead.age %></td>
+        <td><%= lead.job %></td>
+				<td><%= link_to edit_lead_path(lead) do %> <span class="glyphicon glyphicon-pencil"></span> <% end %></td>
+				<td><%= link_to lead, method: :delete, data: { confirm: t('leads.messages.confirm_deletion') } do %> <span class="glyphicon glyphicon-trash"></span> <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

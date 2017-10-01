@@ -1,0 +1,12 @@
+
+
+	<h1 class="section-title"><%= t('page.admin.title') %></h1>
+
+	<div class="well well-sm">
+		<h4><%= t('page.admin.message.title') %></h4>
+		<p><%= t('page.admin.message.content') %></p>
+		<p class="text-right">
+			<%= link_to 'Listas Segmentadas', segmentations_path, class: 'btn btn-primary' %>
+			<%= link_to 'Leads', leads_path, class: 'btn btn-primary' %>
+		</p>
+	</div>

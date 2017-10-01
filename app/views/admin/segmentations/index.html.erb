@@ -1,0 +1,41 @@
+<h1 class="section-title">Listas Segmentadas</h1>
+
+<p>Tela de cadastro e manutenção das listas de segmentação do seus leads.</p>
+
+<p class="text-right">
+	<%= link_to t('segmentations.buttons.new'), new_segmentation_path, class: 'btn btn-default btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped">
+  <thead>
+  <thead>
+    <tr>
+			<th><%= Segmentation.human_attribute_name("name") %></th>
+			<th><%= Segmentation.human_attribute_name("description") %></th>
+      <th width="100px"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @segmentations.each do |segmentation| %>
+      <tr>
+				<td>
+					<%= link_to segmentation_search_path(segmentation) do %>
+						<span class="glyphicon glyphicon-search"></span>&nbsp;<%= segmentation.name %>
+					<% end %>
+				</td>
+        <td title="<%= segmentation.description %>"> <%= segmentation.description %></td>
+				<td>
+					<%= link_to segmentation do %> <span class="glyphicon glyphicon-filter"></span><% end %>
+					<%= link_to edit_segmentation_path(segmentation) do %> <span class="glyphicon glyphicon-pencil"></span> <% end %>
+					<%= link_to segmentation, method: :delete, data: { confirm: t('segmentations.messages.confirm_deletion') } do %> <span class="glyphicon glyphicon-trash"></span> <% end %>
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

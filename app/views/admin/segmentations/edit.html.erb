@@ -1,0 +1,48 @@
+<h1 class="section-title">Editando Lista Segmentada</h1>
+
+<p>Editando a lista segmentada de leads.</p>
+
+<p class="text-right">
+	<%= link_to t('segmentations.buttons.list'), segmentations_path, class: 'btn btn-default btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'form', segmentation: @segmentation %>
+
+
+<h3>Parametros da Lista</h3>
+<% unless @segmentation.segmentation_conditions.count > 0 %>
+	<div class="alert alert-warning">
+		<h4>Atenção!</h4>
+		Ainda não ha nenhum parametro configurado para esta lista!
+	</div>
+	<% else %>
+    <table id="clausule_table_wgt" class="table">
+      <tr>
+				<td>Campo da lista</td>
+        <td>Operador</td>
+        <td>Valor</td>
+				<td>Conjunção</td>
+        <td></td>
+      </tr>
+
+    <% @segmentation.segmentation_conditions.each do |condition| %>
+      <tr>
+        <td><%= condition.field %></td>
+        <td><%= condition.operator %></td>
+        <td><%= condition.value %></td>
+        <td><%= condition.conjunction %></td>
+				<td><%= link_to condition, method: :delete, data: { confirm: 'Are you sure?' } do %> <span class="glyphiconglyphicon-minus-sign"></span> <% end %></td>
+      </tr>
+    <% end %>
+	</table>
+<% end %>
+
+<p>
+	<%= link_to segmentation_path(@segmentation), class: 'btn btn-primary btn-sm' do %>
+		 <span class="glyphicon glyphicon-plus"></span>	Adicionar parametro
+	<% end %>
+</p>
+
+</div>

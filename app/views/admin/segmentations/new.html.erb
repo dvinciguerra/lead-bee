@@ -1,0 +1,12 @@
+<h1 class="section-title">Criando Lista Segmentada</h1>
+
+<p>Criação de uma lista segmentada de leads.</p>
+
+<p class="text-right">
+	<%= link_to t('segmentations.buttons.list'), segmentations_path, class: 'btn btn-default btn-sm' %>
+</p>
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'form', segmentation: @segmentation %>
+

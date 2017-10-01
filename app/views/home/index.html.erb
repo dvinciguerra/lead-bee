@@ -1,3 +1,6 @@
+
+<%= render 'partials/cover' %>
+
 <section id="lead-section" class="lead-section">
 	<div class="container">
 		<div class="section-title">
@@ -9,11 +12,15 @@
 
 		<div class="row">
 			<div class="col-md-offset-3 col-md-6">
-				<%= render 'leads/form', lead: @lead %>
+				<%= render 'form', lead: @lead %>
+
+				<br>
+				<br>
+
+				<%= render 'partials/form_error', object: @lead if @lead.errors.any? %>
 			</div>
 		</div>
 
-		<%= render 'partials/form_error', object: @lead if @lead.errors.any? %>
 
 	</div>
 </section>

@@ -1,0 +1,42 @@
+<%= form_with(model: segmentation_condition, local: true) do |form| %>
+  <% if segmentation_condition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(segmentation_condition.errors.count, "error") %> prohibited this segmentation_condition from being saved:</h2>
+
+      <ul>
+      <% segmentation_condition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :field %>
+    <%= form.text_field :field, id: :segmentation_condition_field %>
+  </div>
+
+  <div class="field">
+    <%= form.label :operator %>
+    <%= form.text_field :operator, id: :segmentation_condition_operator %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :segmentation_condition_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :conjunction %>
+    <%= form.text_field :conjunction, id: :segmentation_condition_conjunction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :segmentation %>
+    <%= form.text_field :segmentation, id: :segmentation_condition_segmentation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
