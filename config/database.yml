@@ -84,5 +84,4 @@ test:
 production:
   <<: *default
   database: leadbee_production
-  username: LeadBee
-  password: <%= ENV['LEADBEE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
