@@ -10,8 +10,11 @@ gem 'bootswatch-rails'
 gem 'coffee-script'
 gem "font-awesome-rails"
 
-# Database, server, security
+# Database
 gem 'pg'
+gem 'rails_or'
+
+# Server and security
 gem 'puma'
 gem 'rack-cors'
 
@@ -41,6 +44,9 @@ group :development do
   gem 'rubocop'
   gem 'bullet'
   gem 'annotate'
+
+	gem "better_errors"
+  gem "binding_of_caller"
 end
 
 # ruby version
