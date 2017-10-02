@@ -6,22 +6,32 @@ marketing campaign.
 
 ![Project Screenshot](https://raw.githubusercontent.com/dvinciguerra/lead-bee/master/screenshot.png)
 
-Things you may want to cover:
 
-* Ruby version
+**Demo project**
 
-* System dependencies
+[https://infinite-coast-27248.herokuapp.com/](https://infinite-coast-27248.herokuapp.com/)
 
-* Configuration
 
-* Database creation
+**Running project on development env**
 
-* Database initialization
+  - Install ruby 2.4+ (we recommend use rbenv or rvm)
+  - Clone this `git` repo
+  - Install postgresql
+  - Run `bundle` to install all dependencies
+  - Migrate database using `rake db:create && rake db:migrate`
+  - Start server using `rails server`
+  
+ **TODO**
+ 
+  - Make better tests using capybara and rspec
+  - Improve UX
+  - Make a auth to admin data
+  - Separate frontend to backend (using backend as api)
+ 
+**Running tests**
 
-* How to run the test suite
+You can run tests using `rails spec`.
 
-* Services (job queues, cache servers, search engines, etc.)
+**Author**
 
-* Deployment instructions
-
-* ...
+Daniel Vinciguerra <daniel.vinciguerra@bivee.com.br>
